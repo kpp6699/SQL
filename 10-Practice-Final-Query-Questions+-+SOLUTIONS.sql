@@ -2,6 +2,7 @@ USE employees;
 
 # Exercise 1
 # Find the average salary of male and female employees in each department.
+
 SELECT
     d.dept_name, e.gender, AVG(salary)
 FROM
@@ -16,8 +17,10 @@ GROUP BY de.dept_no , e.gender
 ORDER BY de.dept_no;
 
 
+
 # Exercise 2
 # Find the lowest department number encountered the 'dept_emp' table. Then, find the highest department number.
+
 SELECT
     MIN(dept_no)
 FROM
@@ -28,14 +31,15 @@ SELECT
 FROM
     dept_emp;
     
-    
+
+
 # Exercise 3
 # Obtain a table containing the following three fields for all individuals whose employee number is no greater than 10040:
 # - employee number
-# - the smallest department number among the departments where an employee has worked in (use a subquery to retrieve this value from the 'dept_emp' table)
-# - assign '110022' as 'manager' to all individuals whose employee number is less than or equal to 10020, and '110039' to those whose number is between 10021 and 10040 inclusive (use a CASE statement to create the third field).
-# If you've worked correctly, you should obtain an output containing 40 rows. 
-# Here’s the top part of the output.
+# - the smallest department number among the departments where an employee has worked in 
+# - assign '110022' as 'manager' to all individuals whose employee number is less than or equal to 10020, and '110039' to
+# those whose number is between 10021 and 10040 inclusive.
+	
 SELECT
     emp_no,
     (SELECT
@@ -61,43 +65,26 @@ FROM
     employees
 WHERE
     YEAR(hire_date) = 2000;
-    
+
+
     
 # Exercise 5
 # Retrieve a list with all employees from the ‘titles’ table who are engineers. 
-# Repeat the exercise, this time retrieving a list with all employees from the ‘titles’ table who are senior engineers.
+
+	
 SELECT
     *
 FROM
     titles
 WHERE
     title LIKE ('%engineer%');
-SELECT
-    *
-FROM
-    titles
-WHERE
-    title LIKE ('%senior engineer%');    
-    
-# After LIKE, you could proceed to indicate what you are looking for with or without using parentheses. Both options work correctly. We think using parentheses is better for legibility reasons and that’s why it is the first option we’ve suggested.
-SELECT
-    *
-FROM
-    titles
-WHERE
-    title LIKE '%engineer%';
-SELECT
-    *
-FROM
-    titles
-WHERE
-    title LIKE '%senior engineer%'; 
+
 
 
 # Exercise 6
 # Create a procedure that asks you to insert an employee number to obtain an output containing the same number, as well as the number and name of the last department the employee has worked for.
 # Finally, call the procedure for employee number 10010.
-# If you've worked correctly, you should see that employee number 10010 has worked for department number 6 - "Quality Management".
+
 DROP procedure IF EXISTS last_dept;
 
 DELIMITER $$
@@ -125,9 +112,10 @@ DELIMITER ;
 call employees.last_dept(10010);
 
 
+
 # Exercise 7
 # How many contracts have been registered in the ‘salaries’ table with duration of more than one year and of value higher than or equal to $100,000? 
-# Hint: You may wish to compare the difference between the start and end date of the salaries contracts.
+
 SELECT 
     COUNT(*)
 FROM
@@ -136,20 +124,13 @@ WHERE
     salary >= 100000
         AND DATEDIFF(to_date, from_date) > 365;
 
-        
+
+
 # Exercise 8
 # Create a trigger that checks if the hire date of an employee is higher than the current date. If true, set this date to be the current date. Format the output appropriately (YY-MM-DD).
-# Extra challenge: You may try to declare a new variable called 'today' which stores today's data, and then use it in your trigger!
-# After creating the trigger, execute the following code to see if it's working properly.
-/*
-INSERT employees VALUES ('999904', '1970-01-31', 'John', 'Johnson', 'M', '2025-01-01');  
 
-SELECT 
-    *
-FROM
-    employees
-ORDER BY emp_no DESC;
-*/
+
+
 DROP TRIGGER IF EXISTS trig_hire_date;
 
 DELIMITER $$
@@ -169,10 +150,21 @@ END $$
 DELIMITER ;
 
 
+# execute the following code to see if it's working properly.
+	
+INSERT employees VALUES ('999904', '1970-01-31', 'John', 'Johnson', 'M', '2025-01-01');  
+
+SELECT 
+    *
+FROM
+    employees
+ORDER BY emp_no DESC;
+
+
 # Exercise 9
 # Define a function that retrieves the largest contract salary value of an employee. Apply it to employee number 11356. 
 # Also, what is the lowest salary value per contract of the same employee? You may want to create a new function that will deliver this number to you.  Apply it to employee number 11356 again.
-# Feel free to apply the function to other employee numbers as well.
+
 DROP FUNCTION IF EXISTS f_highest_salary;
 
 DELIMITER $$
