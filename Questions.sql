@@ -1,6 +1,6 @@
-USE employees;
 
-# Exercise 1
+
+# 1
 # Find the average salary of male and female employees in each department.
 
 SELECT
@@ -18,7 +18,7 @@ ORDER BY de.dept_no;
 
 
 
-# Exercise 2
+#  2
 # Find the lowest department number encountered the 'dept_emp' table. Then, find the highest department number.
 
 SELECT
@@ -33,7 +33,7 @@ FROM
     
 
 
-# Exercise 3
+# 3
 # Obtain a table containing the following three fields for all individuals whose employee number is no greater than 10040:
 # - employee number
 # - the smallest department number among the departments where an employee has worked in 
@@ -57,7 +57,7 @@ FROM
 WHERE
     emp_no <= 10040; 
 
-# Exercise 4
+# 4
 # Retrieve a list with all employees that have been hired in the year 2000.
 SELECT
     *
@@ -68,7 +68,7 @@ WHERE
 
 
     
-# Exercise 5
+# 5
 # Retrieve a list with all employees from the ‘titles’ table who are engineers. 
 
 	
@@ -81,7 +81,7 @@ WHERE
 
 
 
-# Exercise 6
+# 6
 # Create a procedure that asks you to insert an employee number to obtain an output containing the same number, as well as the number and name of the last department the employee has worked for.
 # Finally, call the procedure for employee number 10010.
 
@@ -113,7 +113,7 @@ call employees.last_dept(10010);
 
 
 
-# Exercise 7
+# 7
 # How many contracts have been registered in the ‘salaries’ table with duration of more than one year and of value higher than or equal to $100,000? 
 
 SELECT 
@@ -126,7 +126,7 @@ WHERE
 
 
 
-# Exercise 8
+# 8
 # Create a trigger that checks if the hire date of an employee is higher than the current date. If true, set this date to be the current date. Format the output appropriately (YY-MM-DD).
 
 
@@ -162,7 +162,7 @@ ORDER BY emp_no DESC;
 
 	
 
-# Exercise 9
+# 9
 # Define a function that retrieves the largest contract salary value of an employee. Apply it to employee number 11356. 
 # Also, what is the lowest salary value per contract of the same employee? You may want to create a new function that will deliver this number to you.  Apply it to employee number 11356 again.
 
@@ -220,7 +220,7 @@ DELIMITER ;
 SELECT f_lowest_salary(10356);
 
 
-# Exercise 10
+# 10
 # Based on the previous example, you can now try to create a function that accepts also a second parameter which would be a character sequence. 
 # Evaluate if its value is 'min' or 'max' and based on that retrieve either the lowest or the highest salary (using the same logic and code 
 # from Exercise 9). If this value is a string value different from ‘min’ or ‘max’, then the output of the function should return 
