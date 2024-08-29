@@ -7,4 +7,5 @@ SQL - MySQL for Data Analytics and Business Intelligence: data analysis and data
 
 
   My tableau public profile
-https://public.tableau.com/app/profile/karan.patel2724/vizzes
+
+(https://public.tableau.com/app/profile/karan6699)
