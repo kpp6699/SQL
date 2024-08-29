@@ -160,6 +160,7 @@ FROM
     employees
 ORDER BY emp_no DESC;
 
+	
 
 # Exercise 9
 # Define a function that retrieves the largest contract salary value of an employee. Apply it to employee number 11356. 
@@ -224,6 +225,8 @@ SELECT f_lowest_salary(10356);
 # Evaluate if its value is 'min' or 'max' and based on that retrieve either the lowest or the highest salary (using the same logic and code 
 # from Exercise 9). If this value is a string value different from ‘min’ or ‘max’, then the output of the function should return 
 # the difference between the highest and the lowest salary.
+
+	
 DROP FUNCTION IF EXISTS f_salary;
 
 DELIMITER $$
