@@ -1,4 +1,5 @@
-SQL Data Analysis Project 
+SQL Data Analysis Project.
+
 Business related questions for management
 
 1
