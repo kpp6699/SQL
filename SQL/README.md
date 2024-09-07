@@ -45,8 +45,7 @@ Define a function that retrieves the largest contract salary value of an employe
 number 11356.
 
 10
-Based on the previous exercise, you can now try to create a third function that also accepts a second
-parameter. Let this parameter be a character sequence. Evaluate if its value is 'min' or 'max' and based on
-that retrieve either the lowest or the highest salary, respectively (using the same logic and code structure
-from Exercise 9). If the inserted value is any string value different from ‘min’ or ‘max’, let the function
-return the difference between the highest and the lowest salary of that employee.
+Based on the previous example, you can now try to create a function that accepts also a second parameter which would be a character sequence. 
+Evaluate if its value is 'min' or 'max' and based on that retrieve either the lowest or the highest salary (using the same logic and code 
+from Exercise 9). If this value is a string value different from ‘min’ or ‘max’, then the output of the function should return 
+the difference between the highest and the lowest salary.
